@@ -1,3 +1,14 @@
+#include <RA8875.h>
+#define RA8875_CS   10
+#define RA8875_RST  9
+#define RA8875_INT  2
+
+RA8875 tft = RA8875(RA8875_CS, RA8875_RST);
+bool proceed = false;
+uint8_t count = 0, samples = 10, scount = 0;
+uint16_t tempData[10][2] = {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}};
+uint16_t _XLOW_VAR, _XHIGH_VAR, _YLOW_VAR, _YHIGH_VAR, tx, ty;
+
 void setup() {
   Serial.begin(38400);
   long unsigned debug_start = millis ();
